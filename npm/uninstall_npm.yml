@@ -1,0 +1,10 @@
+---
+- name: Uninstall npm on Arch Linux
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Remove Node.js and npm
+      pacman:
+        name: nodejs npm
+        state: absent

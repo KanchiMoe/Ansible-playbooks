@@ -1,0 +1,14 @@
+---
+- name: Install npm on Arch Linux
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Update package manager cache
+      pacman:
+        update_cache: yes
+
+    - name: Install Node.js and npm
+      pacman:
+        name: nodejs npm
+        state: present
