@@ -1,0 +1,13 @@
+---
+- name: Uninstall man-pages and man-db on Arch Linux
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Uninstall man-pages and man-db
+      pacman:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - man-pages
+        - man-db

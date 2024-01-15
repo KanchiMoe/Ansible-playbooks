@@ -1,0 +1,17 @@
+---
+- name: Install man-pages and man-db on Arch Linux
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: Update package cache
+      pacman:
+        update_cache: yes
+
+    - name: Install man-pages and man-db
+      pacman:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - man-pages
+        - man-db
